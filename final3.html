@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DecoDiva</title>
+    <style>
+       body {
+            font-family: "Verdana", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./background.webp') no-repeat center center/cover;
+            color: black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        header {
+            background: url('./background.webp') no-repeat center center/cover;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .content {
+            padding: 25px;
+            font-weight: bold;
+        }
+
+        .section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .section h3 {
+            cursor: pointer;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 34px;
+            transition: color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .section h3:hover {
+            color: #1abc9c;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .section p {
+            color: black;
+            font-size: 24px;
+            line-height: 1.8;
+            font-weight: bold;
+        }
+
+        .design-img {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .fullscreen-img {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-img img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 36px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="./logo1.jpg" alt="DecoDiva Logo" class="logo">
+    <h1>DecoDiva</h1>
+    <p>Where style meets personality.</p>
+</header>
+
+<div class="content">
+    <section id="home">
+        <h2>Welcome to DecoDiva</h2>
+        <p>Explore and learn about DecoDiva personalized designs and services.</p>
+    </section>
+
+    <section id="about" class="section">
+        <h3 onclick="toggleContent('about-content')">ABOUT DECO DIVA ▼</h3>
+        <div id="about-content" class="hidden">
+            <p>DecoDiva is your one-stop destination for stylish interior designs that reflect personality and creativity.</p>
+        </div>
+    </section>
+
+    <section id="vision-mission" class="section">
+        <h3 onclick="toggleContent('mission-content')">MISSION ▼</h3>
+        <p id="mission-content" class="hidden">Meet or exceed customer expectations while building lasting relationships.</p>
+        <h3 onclick="toggleContent('vision-content')">VISION ▼</h3>
+        <p id="vision-content" class="hidden">To be the leading online decoration service that transforms spaces effortlessly.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h3 onclick="toggleContent('contact-content')">CONTACT US ▼</h3>
+        <div id="contact-content" class="hidden">
+            <p><strong>Phone:</strong> <a href="tel:+639550256414">09550256414</a></p>
+            <p><strong>Email:</strong> <a href="mailto:decodiva@gmail.com">decodiva@gmail.com</a></p>
+        </div>
+    </section>
+</div>
+
+<section id="designs" class="section">
+    <h3 onclick="toggleContent('design-content')">DESIGN STYLES ▼</h3>
+    <div id="design-content" class="hidden">
+        <h4>Boho Design</h4>
+        <img src="./boho1.jpg" alt="Boho Design" class="design-img" onclick="openFullScreen(this.src)">
+	<p>Boho design embraces natural elements, vibrant colors, and eclectic patterns to create a relaxed and inviting atmosphere.</p>
+        <h4>Farmhouse Design</h4>
+        <img src="./farmhouse1.webp" alt="Farmhouse Design" class="design-img" onclick="openFullScreen(this.src)">
+	<p>Farmhouse style combines rustic charm with modern simplicity, focusing on comfort and warmth.</p>
+        <h4>Traditional Design</h4>
+        <img src="./traditional1.png" alt="Traditional Design" class="design-img" onclick="openFullScreen(this.src)">
+	<p>Traditional design highlights classic elements, rich textures, and symmetrical layouts to create an elegant space.</p>
+        <h4>Minimalist Design</h4>
+        <img src="./minimalist1.jpg" alt="Minimalist Design" class="design-img" onclick="openFullScreen(this.src)">
+	<p>Minimalist design focuses on simplicity, clean lines, and a monochromatic palette for a calming ambiance.</p>
+	<h4>Art Deco</h4>
+        <img src="./artdeco1.jpg" alt="Art Deco" class="design-img" onclick="openFullScreen(this.src)">
+	<p>Art Deco features bold geometric patterns, luxurious materials, and rich colors to create a sophisticated feel.</p>
+	<h4>Scandinavian Design</h4>
+        <img src="./scandinavian1.jpg" alt="Scandinavian Design" class="design-img" onclick="openFullScreen(this.src)">
+	<p>Scandinavian design emphasizes minimalism, functionality, and natural light for a cozy and stylish space.</p>
+
+
+	
+    </div>
+</section>
+
+<div class="fullscreen-img" id="fullscreenImg">
+    <span class="close-btn" onclick="closeFullScreen()">&times;</span>
+    <img id="fullImage" src="" alt="">
+</div>
+
+<footer>
+    <p>© 2025 DecoDiva. All rights reserved. | <a href="#terms">Terms of Service</a> | <a href="#privacy">Privacy Policy</a></p>
+</footer>
+
+<script>
+    function toggleContent(id) {
+        const content = document.getElementById(id);
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+    function openFullScreen(src) {
+        document.getElementById('fullImage').src = src;
+        document.getElementById('fullscreenImg').style.display = 'flex';
+    }
+    function closeFullScreen() {
+        document.getElementById('fullscreenImg').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
